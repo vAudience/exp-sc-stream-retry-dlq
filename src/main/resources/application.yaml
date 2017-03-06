@@ -22,8 +22,8 @@ spring:
           group: ${spring.application.name}
 
           consumer:
-            concurrency: 1
-            max-attempts: 60
+            concurrency: 10
+            max-attempts: 30
 
       rabbit:
         bindings:
