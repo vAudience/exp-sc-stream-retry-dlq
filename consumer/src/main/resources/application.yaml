@@ -15,7 +15,7 @@ spring:
 
           consumer:
             concurrency: 10
-            max-attempts: 3
+            max-attempts: 5
 
       rabbit:
         bindings:
@@ -23,11 +23,12 @@ spring:
             consumer:
               autoBindDlq: true
               durableSubscription: true
-
-              ## TODO: try setting to false
-              requeueRejected: true
-
+              requeueRejected: false
               republishToDlq: true
-              transacted: true
               prefix: ha.
+
+#debug: true
+#logging:
+#  level:
+#    root: DEBUG
 
