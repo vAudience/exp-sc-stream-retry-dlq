@@ -1,4 +1,4 @@
-package com.example
+package com.example.producer
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -38,6 +38,6 @@ interface Source {
         const val OUTPUT = "input"
     }
 
-    @Output(Source.OUTPUT)
+    @Output(OUTPUT)
     fun output(): MessageChannel
 }

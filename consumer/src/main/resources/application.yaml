@@ -5,14 +5,6 @@ spring:
     username: admin
     password: CH33R44
 
-
----
-spring:
-  rabbitmq:
-    addresses: rabbitmqamqp1.services.svc.cluster.local
-    username: admin
-    password: CH33R44
-
   cloud:
     stream:
       bindings:
@@ -23,7 +15,7 @@ spring:
 
           consumer:
             concurrency: 10
-            max-attempts: 30
+            max-attempts: 3
 
       rabbit:
         bindings:
@@ -31,6 +23,11 @@ spring:
             consumer:
               autoBindDlq: true
               durableSubscription: true
+
+              ## TODO: try setting to false
               requeueRejected: true
+
               republishToDlq: true
               transacted: true
+              prefix: ha.
+

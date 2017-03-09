@@ -1,4 +1,4 @@
-package com.example
+package com.example.producer.consumer
 
 import org.slf4j.LoggerFactory
 import org.springframework.boot.SpringApplication
@@ -55,10 +55,10 @@ interface Processor {
         const val OUTPUT = "output"
     }
 
-    @Output(Processor.OUTPUT)
+    @Output(OUTPUT)
     fun output(): MessageChannel
 
-    @Input(Processor.INPUT)
+    @Input(INPUT)
     fun input(): SubscribableChannel
 }
 

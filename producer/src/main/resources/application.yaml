@@ -1,0 +1,22 @@
+---
+spring:
+  rabbitmq:
+    addresses: rabbitmqamqp1.services.svc.cluster.local
+    username: admin
+    password: CH33R44
+
+  cloud:
+    stream:
+      bindings:
+        input:
+          binder: rabbit
+          destination: input
+          group: ${spring.application.name}
+
+      rabbit:
+        bindings:
+          input:
+            producer:
+              transacted: true
+              prefix: ha.
+              delivery-mode: persistent
