@@ -7,6 +7,7 @@ import org.springframework.cloud.stream.annotation.EnableBinding
 import org.springframework.cloud.stream.annotation.Input
 import org.springframework.cloud.stream.annotation.Output
 import org.springframework.cloud.stream.annotation.StreamListener
+import org.springframework.context.annotation.ImportResource
 import org.springframework.messaging.MessageChannel
 import org.springframework.messaging.SubscribableChannel
 import org.springframework.messaging.handler.annotation.SendTo
@@ -17,6 +18,7 @@ import java.text.SimpleDateFormat
 
 @EnableScheduling
 @SpringBootApplication
+@ImportResource("classpath:/beans.xml")
 class Consumer
 
 fun main(args: Array<String>) {

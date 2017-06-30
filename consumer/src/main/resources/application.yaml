@@ -1,4 +1,8 @@
 ---
+server.port: 8800
+security.basic.enabled: false
+management.security.enabled: false
+
 spring:
   rabbitmq:
     addresses: rabbitmqamqp1.services.svc.cluster.local
@@ -10,7 +14,7 @@ spring:
       bindings:
         input:
           binder: rabbit
-          destination: input
+          destination: test-michele
           group: ${spring.application.name}
 
           consumer:
