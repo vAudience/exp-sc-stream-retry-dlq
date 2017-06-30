@@ -16,7 +16,6 @@ spring:
           binder: rabbit
           destination: test-michele
           group: ${spring.application.name}
-
           consumer:
             concurrency: 10
             max-attempts: 5
@@ -27,9 +26,10 @@ spring:
             consumer:
               autoBindDlq: true
               durableSubscription: true
-              requeueRejected: false
+              requeueRejected: true
               republishToDlq: true
               prefix: ha.
+              transacted: true
 
 #debug: true
 #logging:
